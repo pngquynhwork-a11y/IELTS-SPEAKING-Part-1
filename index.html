@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS SPEAKING - Part 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --primary: #1a73e8;
+    --primary-dark: #1557b0;
+    --primary-light: #e8f0fe;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --correct: #16a34a;
+    --correct-bg: #dcfce7;
+    --wrong: #dc2626;
+    --wrong-bg: #fee2e2;
+    --amber: #d97706;
+    --amber-bg: #fef3c7;
+    --purple: #7c3aed;
+    --purple-bg: #f3e8ff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+  }
+
+  /* HEADER & NAVIGATION */
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .badge-ielts {
+    background: #dc2626;
+    color: white;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  .brand h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    font-family: inherit;
+    font-size: 16.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tab-btn:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.7);
+  }
+
+  .tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.25);
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 1060px;
+    width: 100%;
+    margin: 26px auto;
+    padding: 0 20px 60px;
+    flex: 1;
+  }
+
+  .tab-panel {
+    display: none;
+    animation: fadeIn 0.25s ease;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .section-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .section-desc {
+    font-size: 16.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* =========================================================
+     TAB 1: SAMPLE DIALOGUE
+     ========================================================= */
+  .dialogue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .turn-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+
+  .turn-e {
+    background: #f1f5f9;
+    border-left: 4px solid #475569;
+  }
+
+  .turn-c {
+    background: #eff6ff;
+    border-left: 4px solid var(--primary);
+  }
+
+  .speaker-badge {
+    min-width: 34px;
+    height: 30px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .turn-e .speaker-badge {
+    background: #334155;
+    color: white;
+  }
+
+  .turn-c .speaker-badge {
+    background: var(--primary);
+    color: white;
+  }
+
+  .turn-text {
+    font-size: 18px;
+    color: #0f172a;
+    flex: 1;
+  }
+
+  .turn-e .turn-text {
+    font-weight: 600;
+  }
+
+  .speak-mini-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 9px;
+    cursor: pointer;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+
+  .speak-mini-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  /* =========================================================
+     TAB 2: HOW TO GIVE ANSWERS (FORMULA)
+     ========================================================= */
+  .formula-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+  }
+
+  .f-step {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .f-plus {
+    font-size: 22px;
+    font-weight: 800;
+    color: #facc15;
+  }
+
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .step-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .step-card h3 {
+    font-size: 18.5px;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .step-card ul {
+    padding-left: 18px;
+    font-size: 17px;
+    color: #334155;
+  }
+
+  .step-card li {
+    margin-bottom: 6px;
+  }
+
+  .worked-example-box {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .tag-direct { background: #dbeafe; color: #1e40af; padding: 2px 7px; border-radius: 4px; font-weight: 700; font-size: 13px; }
+  .tag-exp { background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; font-weight: 700; font-size: 13px; }
+  .tag-ben { background: #dcfce7; color: #166534; padding: 2px 7px; border-radius: 4px; font-weight: 700; font-size: 13px; }
+
+  /* =========================================================
+     TAB 3: PRONUNCIATION (THEORY + PRACTICE)
+     ========================================================= */
+  .pron-subtabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .pron-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1.5px solid #cbd5e1;
+    background: #ffffff;
+    font-weight: 600;
+    font-size: 16.5px;
+    cursor: pointer;
+    color: #334155;
+  }
+
+  .pron-pill.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .pron-block {
+    display: none;
+  }
+
+  .pron-block.active {
+    display: block;
+  }
+
+  .rule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 17px;
+  }
+
+  .rule-table th {
+    background: #f1f5f9;
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid #cbd5e1;
+    font-weight: 700;
+  }
+
+  .rule-table td {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+  }
+
+  .quiz-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 16px;
+  }
+
+  .quiz-q {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+
+  .quiz-q:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .quiz-opts {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .q-chip {
+    padding: 7px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16.5px;
+    transition: all 0.15s;
+  }
+
+  .q-chip:hover {
+    border-color: var(--primary);
+    background: #eff6ff;
+  }
+
+  .q-chip.ok {
+    background: var(--correct-bg);
+    border-color: var(--correct);
+    color: var(--correct);
+  }
+
+  .q-chip.err {
+    background: var(--wrong-bg);
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+
+  .stress-word-btn {
+    padding: 8px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 17.5px;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+
+  .stress-word-btn.stressed {
+    background: #fef08a;
+    border-color: #ca8a04;
+    color: #854d0e;
+    font-weight: 800;
+    transform: translateY(-2px);
+  }
+
+  /* =========================================================
+     TAB 4: PRACTICE (STUDIES & FILMS - CLICK TO REVEAL)
+     ========================================================= */
+  .topic-badge-header {
+    display: inline-block;
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+
+  .practice-q-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .practice-q-card:hover {
+    border-color: #93c5fd;
+  }
+
+  .practice-q-trigger {
+    width: 100%;
+    padding: 15px 20px;
+    background: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 18.5px;
+    font-weight: 700;
+    color: #0f172a;
+    gap: 12px;
+    transition: background 0.15s;
+  }
+
+  .practice-q-trigger:hover {
+    background: #f8fafc;
+  }
+
+  .practice-q-card.open .practice-q-trigger {
+    background: #eff6ff;
+    color: var(--primary-dark);
+    border-bottom: 1px solid #bfdbfe;
+  }
+
+  .toggle-hint {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .practice-answer-body {
+    display: none;
+    padding: 18px 22px;
+    background: #fafaf9;
+    font-size: 17.5px;
+  }
+
+  .practice-q-card.open .practice-answer-body {
+    display: block;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .structure-guide {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 16.5px;
+    color: #78350f;
+  }
+
+  .sample-ans-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid var(--correct);
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    color: #0f172a;
+    line-height: 1.7;
+  }
+
+  .vocab-list-box {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 16.5px;
+    color: #0c4a6e;
+  }
+
+  .vocab-list-box ul {
+    padding-left: 18px;
+    margin-top: 6px;
+  }
+
+  .vocab-list-box li {
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span class="badge-ielts">IELTS</span>
+      <h1>IELTS SPEAKING - Part 1</h1>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-btn-1" onclick="switchTab(1)">1. Sample Test</button>
+      <button class="tab-btn" id="tab-btn-2" onclick="switchTab(2)">2. How to Give Answers</button>
+      <button class="tab-btn" id="tab-btn-3" onclick="switchTab(3)">3. Pronunciation</button>
+      <button class="tab-btn" id="tab-btn-4" onclick="switchTab(4)">4. Practice (Studies &amp; Films)</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         TAB 1: SAMPLE OF IELTS SPEAKING TEST - PART 1
+         ========================================================= -->
+    <section id="panel-1" class="tab-panel active">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-title">1. Sample of IELTS Speaking Test – Part 1</div>
+            <div class="section-desc">Hội thoại mẫu giữa Giám khảo (<b>E</b> = Examiner) và Thí sinh (<b>C</b> = Candidate). Bấm 🔊 để nghe phát âm từng lượt lời.</div>
+          </div>
+        </div>
+
+        <div class="dialogue-list" id="sampleDialogueContainer"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TAB 2: HOW TO GIVE ANSWERS IN IELTS SPEAKING TEST
+         ========================================================= -->
+    <section id="panel-2" class="tab-panel">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-title">2. How to Give Answers in IELTS Speaking Test – Part 1</div>
+            <div class="section-desc">Công thức mở rộng câu trả lời tự nhiên, mạch lạc đạt Band 5.5 – 6.5+ (dài khoảng 2–4 câu).</div>
+          </div>
+        </div>
+
+        <div class="formula-banner">
+          <div class="f-step">1. Direct Answer<br><span style="font-size:12.5px; font-weight:400;">(Trả lời trực tiếp)</span></div>
+          <div class="f-plus">+</div>
+          <div class="f-step">2. Explanation / Example<br><span style="font-size:12.5px; font-weight:400;">(Giải thích / Ví dụ)</span></div>
+          <div class="f-plus">+</div>
+          <div class="f-step">3. (+ Benefits / Feelings)<br><span style="font-size:12.5px; font-weight:400;">(Lợi ích / Cảm xúc)</span></div>
+        </div>
+
+        <div class="step-grid">
+          <div class="step-card">
+            <h3>Bước 1: Direct Answer (Trả lời thẳng vào câu hỏi)</h3>
+            <ul>
+              <li>Tránh chỉ trả lời cụt lủn <i>"Yes"</i> hoặc <i>"No"</i>.</li>
+              <li>Sử dụng từ nối mở đầu tự nhiên: <i>Well, actually... / Definitely yes! / To be honest, not really... / It depends, really...</i></li>
+              <li>Paraphrase nhẹ từ khóa trong câu hỏi của giám khảo.</li>
+            </ul>
+          </div>
+
+          <div class="step-card">
+            <h3>Bước 2: Explanation / Example (Lý do &amp; Ví dụ cụ thể)</h3>
+            <ul>
+              <li>Giải thích tại sao (<b>Because / Since / The main reason is that...</b>).</li>
+              <li>Đưa ra ví dụ thực tế (<b>For example / For instance / Especially when...</b>) hoặc tần suất/thời điểm.</li>
+            </ul>
+          </div>
+
+          <div class="step-card">
+            <h3>Bước 3: (+ Benefits / Feelings) (Lợi ích &amp; Cảm nhận)</h3>
+            <ul>
+              <li>Nêu tác động tích cực hoặc cảm xúc cá nhân để khép lại ý trọn vẹn.</li>
+              <li>Mẫu câu hay dùng: <i>It helps me unwind after a long day / I find it really rewarding / It gives me a sense of achievement.</i></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="worked-example-box">
+          <div style="font-weight: 700; font-size: 18.5px; color: #166534; margin-bottom: 10px;">📌 Ví dụ minh họa áp dụng công thức (Phân tích từ bài mẫu ở Tab 1):</div>
+          <p style="margin-bottom: 8px;"><b>Examiner:</b> <i>How much time do you spend with friends?</i></p>
+          <p style="line-height: 1.8;">
+            <span class="tag-direct">Direct Answer</span> "I love friends. I don't have much spare time, but I normally meet once or twice a week with friends" + 
+            <span class="tag-exp">Example</span> "for meals or sometimes at weekends for small trips." + 
+            <span class="tag-ben">Feelings/Benefits</span> "I feel so relaxed with my friends."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TAB 3: PRONUNCIATION (ED SOUNDS, ENDING SOUNDS, SENTENCE STRESS)
+         ========================================================= -->
+    <section id="panel-3" class="tab-panel">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-title">3. Pronunciation for IELTS Speaking Part 1</div>
+            <div class="section-desc">Lý thuyết trọng tâm và bài tập thực hành sát với các từ vựng xuất hiện trong bài thi IELTS Speaking.</div>
+          </div>
+        </div>
+
+        <div class="pron-subtabs">
+          <button class="pron-pill active" id="p-pill-1" onclick="switchPronSub(1)">3.1. -ED Sounds (/t/, /d/, /ɪd/)</button>
+          <button class="pron-pill" id="p-pill-2" onclick="switchPronSub(2)">3.2. Ending Sounds (Âm cuối)</button>
+          <button class="pron-pill" id="p-pill-3" onclick="switchPronSub(3)">3.3. Sentence Stress (Trọng âm câu)</button>
+        </div>
+
+        <!-- 3.1 ED SOUNDS -->
+        <div class="pron-block active" id="pron-1">
+          <h3 style="color:#0f172a; margin-bottom:8px;">Lý thuyết: 3 cách phát âm đuôi -ED</h3>
+          <table class="rule-table">
+            <thead>
+              <tr>
+                <th style="width:18%;">Cách đọc</th>
+                <th style="width:42%;">Quy tắc nhận biết (âm cuối trước -ed)</th>
+                <th style="width:40%;">Ví dụ trong IELTS Speaking</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>/ɪd/</b></td>
+                <td>Động từ kết thúc bằng âm <b>/t/</b> hoặc <b>/d/</b></td>
+                <td>locat<b>ed</b>, graduat<b>ed</b>, want<b>ed</b>, decid<b>ed</b>, crowded</td>
+              </tr>
+              <tr>
+                <td><b>/t/</b></td>
+                <td>Âm vô thanh: <b>/p/, /k/, /f/, /s/, /ʃ/, /tʃ/</b><br><i>(Mẹo: "Sáng sớm chạy khắp phố phường")</i></td>
+                <td>relax<b>ed</b> (/t/), watch<b>ed</b> (/t/), lik<b>ed</b> (/t/), help<b>ed</b> (/t/), work<b>ed</b> (/t/)</td>
+              </tr>
+              <tr>
+                <td><b>/d/</b></td>
+                <td>Các âm hữu thanh còn lại (nguyên âm &amp; phụ âm rung)</td>
+                <td>call<b>ed</b> (/d/), travel<b>ed</b> (/d/), shar<b>ed</b> (/d/), realis<b>ed</b> (/d/), enjoy<b>ed</b> (/d/)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="quiz-box">
+            <div style="font-weight:700; color:var(--primary); margin-bottom:12px;">✍️ Bài tập vận dụng 1: Chọn từ có phần gạch chân (-ed) phát âm KHÁC với các từ còn lại:</div>
+            <div id="edQuizContainer"></div>
+          </div>
+        </div>
+
+        <!-- 3.2 ENDING SOUNDS -->
+        <div class="pron-block" id="pron-2">
+          <h3 style="color:#0f172a; margin-bottom:8px;">Lý thuyết: Tầm quan trọng của Ending Sounds (Âm cuối)</h3>
+          <p style="margin-bottom:12px;">Trong tiêu chí chấm điểm <b>Pronunciation</b> của IELTS, việc nuốt âm cuối khiến giám khảo hiểu nhầm nghĩa từ hoặc làm mất dấu hiệu ngữ pháp (số nhiều, chia động từ, sở hữu cách).</p>
+          <table class="rule-table">
+            <thead>
+              <tr>
+                <th>Nhóm âm cuối</th>
+                <th>Lưu ý khi bật âm</th>
+                <th>Cặp từ dễ nhầm lẫn (Minimal Pairs)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Âm gió /s/, /z/, /ʃ/, /tʃ/</b></td>
+                <td>Kéo dài nhẹ luồng hơi ở đầu lưỡi, không nuốt chửng âm cuối.</td>
+                <td>place<b>s</b> /ˈpleɪsɪz/ vs place /pleɪs/<br>watch /wɒtʃ/ vs what /wɒt/</td>
+              </tr>
+              <tr>
+                <td><b>Âm bật /t/, /d/, /k/, /p/</b></td>
+                <td>Đặt đầu lưỡi/môi đúng vị trí chặn hơi và bật nhẹ.</td>
+                <td>food /fuːd/ vs foo (sai)<br>like /laɪk/ vs lie /laɪ/</td>
+              </tr>
+              <tr>
+                <td><b>Âm mũi /m/, /n/, /ŋ/</b></td>
+                <td>Khép môi với /m/, chạm lưỡi lên nướu với /n/.</td>
+                <td>time /taɪm/ vs tie /taɪ/<br>nine /naɪn/ vs night /naɪt/</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="quiz-box">
+            <div style="font-weight:700; color:var(--primary); margin-bottom:12px;">✍️ Bài tập vận dụng 2: Xác định âm cuối (Ending Sound) chính xác của các từ vựng IELTS sau:</div>
+            <div id="endingQuizContainer"></div>
+          </div>
+        </div>
+
+        <!-- 3.3 SENTENCE STRESS -->
+        <div class="pron-block" id="pron-3">
+          <h3 style="color:#0f172a; margin-bottom:8px;">Lý thuyết: Sentence Stress (Trọng âm câu)</h3>
+          <p style="margin-bottom:12px;">Tiếng Anh là ngôn ngữ có nhịp điệu theo trọng âm (<i>stress-timed language</i>). Khi trả lời IELTS Speaking, thí sinh cần nhấn mạnh vào <b>Từ nội dung (Content words)</b> và đọc lướt nhẹ <b>Từ chức năng (Function words)</b>.</p>
+          <table class="rule-table">
+            <thead>
+              <tr>
+                <th style="width:50%; background:#dcfce7; color:#166534;">✅ Content Words (NHẤN MẠNH - đọc to, rõ, cao giọng)</th>
+                <th style="width:50%; background:#f1f5f9; color:#475569;">⬇️ Function Words (ĐỌC LƯỚT - nhẹ, nhanh)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  • Danh từ chính (<i>food, hometown, movies, university</i>)<br>
+                  • Động từ chính (<i>love, prefer, travel, relax</i>)<br>
+                  • Tính từ &amp; Trạng từ (<i>delicious, cheap, usually, really</i>)<br>
+                  • Từ để hỏi &amp; Trợ động từ phủ định (<i>What, Why, don't, can't</i>)
+                </td>
+                <td>
+                  • Đại từ nhân xưng (<i>I, you, we, they, it</i>)<br>
+                  • Mạo từ &amp; Giới từ (<i>a, an, the, in, on, at, for, to</i>)<br>
+                  • Trợ động từ khẳng định (<i>am, is, are, do, have, can</i>)<br>
+                  • Liên từ nối (<i>and, but, so, that</i>)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="quiz-box">
+            <div style="font-weight:700; color:var(--primary); margin-bottom:8px;">✍️ Bài tập vận dụng 3: Bấm chọn các Content Words (từ cần nhấn trọng âm) trong 2 câu trả lời IELTS sau, rồi bấm "Kiểm tra":</div>
+            <div id="stressQuizContainer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TAB 4: PRACTICE (STUDIES & FILMS)
+         ========================================================= -->
+    <section id="panel-4" class="tab-panel">
+      <div class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-title">4. Practice – IELTS Speaking Part 1 Topics</div>
+            <div class="section-desc">Bấm vào từng câu hỏi bên dưới để mở rộng <b>Cách khai triển ý</b>, <b>Câu trả lời gợi ý (Band 5.5–6.0)</b> và <b>Từ vựng/Phrases ăn điểm</b>.</div>
+          </div>
+        </div>
+
+        <!-- TOPIC 1: STUDIES -->
+        <div style="margin-bottom: 30px;">
+          <div class="topic-badge-header">📚 Topic 1: Studies (7 Questions)</div>
+          <div id="practiceStudiesContainer"></div>
+        </div>
+
+        <!-- TOPIC 2: FILMS -->
+        <div>
+          <div class="topic-badge-header">🎬 Topic 2: Films (5 Questions)</div>
+          <div id="practiceFilmsContainer"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+  // =========================================================
+  // DỮ LIỆU TAB 1: SAMPLE DIALOGUE (TỪ ẢNH 1 & 2)
+  // =========================================================
+  const sampleDialogue = [
+    { role: "E", text: "Good morning." },
+    { role: "C", text: "Good morning." },
+    { role: "E", text: "I'm John. Can you tell me your full name, please?" },
+    { role: "C", text: "My name is Li Juan." },
+    { role: "E", text: "Thank you. How shall I call you?" },
+    { role: "C", text: "You can just call me Juan." },
+    { role: "E", text: "May I see your identification, please?" },
+    { role: "C", text: "Here you are." },
+    { role: "E", text: "Thank you. Now, first of all, I'd like to ask you some questions about yourself." },
+    { role: "C", text: "OK." },
+    { role: "E", text: "What part of the country are you from?" },
+    { role: "C", text: "I am from Chengdu, the capital of Sichuan Province. It is located in southwest China, famous for many historical sites." },
+    { role: "E", text: "What do you like most about Chengdu?" },
+    { role: "C", text: "Well, there is so much I like about my home town. What I like the most, probably, is the food, I think. As you might know, food there is cheap and delicious." },
+    { role: "E", text: "Let's move on to talk about travelling. Do you travel a lot in your life?" },
+    { role: "C", text: "Well, not a lot although I like travelling very much. Since I just graduated from university a couple of years ago, I do not make enough money to visit as many places as I wish. Normally I probably travel once every two years, usually in the summer." },
+    { role: "E", text: "What kind of places would you like to visit?" },
+    { role: "C", text: "I always prefer nature more to historical places. The most exciting thing for me in travelling is to be close to nature. So, the places I like the most are usually mountains, beaches, forests, etc." },
+    { role: "E", text: "OK. We will talk about friends now. How much time do you spend with friends?" },
+    { role: "C", text: "I love friends. I don't have much spare time, but I normally meet once or twice a week with friends for meals or sometimes at weekends for small trips. I feel so relaxed with my friends." },
+    { role: "E", text: "What kind of friends do you prefer?" },
+    { role: "C", text: "I like friends who share the same interests with me and who can listen and discuss with me about the problems I have with my work. We can spend time together having fun, and during difficult times, we can also turn to each other for help." },
+    { role: "E", text: "Is friendship very important to you and why?" },
+    { role: "C", text: "Yes, friends are quite important in my life. As the saying goes, \"A friend in need is a friend indeed.\". True friends are really treasures. You will know how important friends are, especially when you have difficult moments in life. The comfort brought by friends is very essential. At the same time, you will also realise how important friends are during times of joy and success." }
+  ];
+
+  // =========================================================
+  // DỮ LIỆU TAB 3: PRONUNCIATION QUIZZES
+  // =========================================================
+  const edQuizData = [
+    {
+      q: "1. Chọn từ có đuôi -ed phát âm khác:",
+      opts: ["A. graduated", "B. located", "C. relaxed", "D. decided"],
+      ans: 2,
+      exp: "<b>C. relaxed</b> phát âm là <b>/t/</b> (âm cuối /s/); các từ còn lại kết thúc bằng /t/ hoặc /d/ nên đọc là <b>/ɪd/</b>."
+    },
+    {
+      q: "2. Chọn từ có đuôi -ed phát âm khác:",
+      opts: ["A. travelled", "B. shared", "C. realised", "D. watched"],
+      ans: 3,
+      exp: "<b>D. watched</b> phát âm là <b>/t/</b> (âm cuối /tʃ/); các từ còn lại phát âm là <b>/d/</b>."
+    },
+    {
+      q: "3. Chọn từ có đuôi -ed phát âm khác:",
+      opts: ["A. liked", "B. helped", "C. loved", "D. worked"],
+      ans: 2,
+      exp: "<b>C. loved</b> phát âm là <b>/d/</b> (âm cuối /v/ hữu thanh); các từ còn lại phát âm là <b>/t/</b>."
+    }
+  ];
+
+  const endingQuizData = [
+    {
+      q: "1. Âm cuối (ending sound) của từ 'sites' (historical sites) là gì?",
+      opts: ["A. /t/", "B. /s/", "C. /z/", "D. /ɪz/"],
+      ans: 1,
+      exp: "<b>B. /s/</b> — vì 'site' kết thúc bằng âm vô thanh /t/, khi thêm 's' đọc là /saɪts/."
+    },
+    {
+      q: "2. Âm cuối (ending sound) của từ 'treasures' (really treasures) là gì?",
+      opts: ["A. /s/", "B. /z/", "C. /ʃ/", "D. /tʃ/"],
+      ans: 1,
+      exp: "<b>B. /z/</b> — vì 'treasure' kết thúc bằng nguyên âm /ə/ (hữu thanh), khi thêm 's' đọc là /ˈtreʒəz/."
+    },
+    {
+      q: "3. Âm cuối (ending sound) của từ 'watch' (watch films) là gì?",
+      opts: ["A. /t/", "B. /ʃ/", "C. /tʃ/", "D. /k/"],
+      ans: 2,
+      exp: "<b>C. /tʃ/</b> — chú ý bật âm gió /tʃ/ ở cuối để không nhầm với từ 'what' (/wɒt/)."
+    }
+  ];
+
+  const stressQuizData = [
+    {
+      sentence: "I always prefer nature more to historical places.",
+      words: ["I", "always", "prefer", "nature", "more", "to", "historical", "places."],
+      stressedIndices: [1, 2, 3, 6, 7],
+      explanation: "Các từ nội dung cần nhấn mạnh: <b>always</b> (adv), <b>prefer</b> (v), <b>nature</b> (n), <b>historical</b> (adj), <b>places</b> (n). Các từ chức năng (<i>I, more, to</i>) đọc lướt nhẹ."
+    },
+    {
+      sentence: "Watching films helps me unwind after a stressful week.",
+      words: ["Watching", "films", "helps", "me", "unwind", "after", "a", "stressful", "week."],
+      stressedIndices: [0, 1, 2, 4, 7, 8],
+      explanation: "Các từ nội dung cần nhấn mạnh: <b>Watching</b> (v), <b>films</b> (n), <b>helps</b> (v), <b>unwind</b> (v), <b>stressful</b> (adj), <b>week</b> (n)."
+    }
+  ];
+
+  // =========================================================
+  // DỮ LIỆU TAB 4: PRACTICE (STUDIES & FILMS - ẢNH 3 & 4)
+  // =========================================================
+  const studiesPractice = [
+    {
+      q: "1. What subject do you study?",
+      strategy: "<b>Direct Answer</b> (Nêu tên chuyên ngành/môn học) + <b>Explanation</b> (Giải thích ngắn gọn nội dung chính của ngành học đó).",
+      sample: "Currently, I'm majoring in <b>Applied Linguistics</b> at university. Basically, my course focuses on how people acquire foreign languages and effective methods for teaching English.",
+      vocab: [
+        "<b>major in (v):</b> học chuyên ngành về...",
+        "<b>acquire a foreign language (vp):</b> tiếp thu / học một ngoại ngữ",
+        "<b>effective methods (np):</b> các phương pháp hiệu quả"
+      ]
+    },
+    {
+      q: "2. Why did you choose this subject?",
+      strategy: "<b>Direct Answer</b> (Lý do chính: đam mê hoặc định hướng nghề nghiệp) + <b>Explanation / Example</b> (Kể trải nghiệm thực tế) + <b>Benefits</b> (Cơ hội việc làm rộng mở).",
+      sample: "Well, I chose this major mainly because I've had a <b>passion for</b> English since I was in high school. Besides, having strong communication skills in English opens up a lot of <b>career opportunities</b> in today's globalized world.",
+      vocab: [
+        "<b>have a passion for (vp):</b> có niềm đam mê với...",
+        "<b>career opportunities (np):</b> cơ hội nghề nghiệp",
+        "<b>globalized world (np):</b> thế giới toàn cầu hóa"
+      ]
+    },
+    {
+      q: "3. What do you like most about your studies?",
+      strategy: "<b>Direct Answer</b> (Chỉ ra điểm thích nhất: giảng viên, bạn bè hoặc tính thực hành) + <b>Example</b> (Nêu ví dụ cụ thể) + <b>Feelings</b> (Cảm thấy hứng thú).",
+      sample: "What I enjoy the most is the <b>interactive learning environment</b>. Our lecturers often organize group discussions and practical workshops instead of just giving boring lectures, which keeps me really <b>engaged</b> in class.",
+      vocab: [
+        "<b>interactive learning environment (np):</b> môi trường học tập tương tác",
+        "<b>practical workshops (np):</b> các buổi hội thảo thực hành",
+        "<b>keep someone engaged (vp):</b> giúp ai đó tập trung, hứng thú"
+      ]
+    },
+    {
+      q: "4. Are there any things you dislike about your studies?",
+      strategy: "<b>Direct Answer</b> (Thừa nhận một điểm chưa thích một cách lịch sự) + <b>Explanation</b> (Giải thích nguyên nhân: áp lực bài tập/thi cử) + <b>Balance</b> (Khẳng định vẫn cố gắng vượt qua).",
+      sample: "To be honest, I'm not really keen on the <b>heavy workload</b> during exam periods. Sometimes I have to meet tight deadlines for multiple assignments at the same time, which can be quite <b>overwhelming</b>.",
+      vocab: [
+        "<b>be keen on (adj):</b> thích thú với...",
+        "<b>heavy workload (np):</b> khối lượng bài vở / công việc nặng",
+        "<b>meet tight deadlines (vp):</b> hoàn thành đúng hạn gấp",
+        "<b>overwhelming (adj):</b> choáng ngợp, quá tải"
+      ]
+    },
+    {
+      q: "5. What do you find most difficult in your studies?",
+      strategy: "<b>Direct Answer</b> (Nêu kỹ năng/phần khó nhất) + <b>Explanation</b> (Tại sao nó khó) + <b>Action</b> (Cách bạn khắc phục).",
+      sample: "For me, the most challenging part is writing <b>academic essays</b>. It requires a wide range of formal vocabulary and strong critical thinking skills, so I have to spend extra hours reading research papers to improve.",
+      vocab: [
+        "<b>academic essays (np):</b> bài luận học thuật",
+        "<b>a wide range of (phr):</b> đa dạng, nhiều...",
+        "<b>critical thinking skills (np):</b> kỹ năng tư duy phản biện"
+      ]
+    },
+    {
+      q: "6. What kind of qualifications or certificates do you hope to get?",
+      strategy: "<b>Direct Answer</b> (Nêu bằng đại học và chứng chỉ ngoại ngữ/tin học cụ thể) + <b>Benefits</b> (Giúp ích gì cho tương lai).",
+      sample: "Apart from my <b>Bachelor's degree</b>, I'm aiming to get an IELTS certificate with an overall band score of 7.0. I believe these qualifications will make my CV <b>stand out</b> when I apply for jobs.",
+      vocab: [
+        "<b>apart from (prep):</b> bên cạnh, ngoài... ra",
+        "<b>Bachelor's degree (np):</b> bằng Cử nhân",
+        "<b>stand out (pv):</b> nổi bật lên"
+      ]
+    },
+    {
+      q: "7. What do you hope to do after graduation?",
+      strategy: "<b>Direct Answer</b> (Dự định nghề nghiệp ngay sau tốt nghiệp) + <b>Explanation / Long-term goal</b> (Mục tiêu xa hơn trong 2–3 năm tới).",
+      sample: "Right after graduating, I hope to work as an English teacher at a reputable language center to gain some <b>hands-on experience</b>. In the long run, I'd love to pursue a Master's degree abroad.",
+      vocab: [
+        "<b>reputable (adj):</b> có uy tín, danh tiếng",
+        "<b>hands-on experience (np):</b> kinh nghiệm thực tiễn",
+        "<b>in the long run (idm):</b> về lâu dài"
+      ]
+    }
+  ];
+
+  const filmsPractice = [
+    {
+      q: "1. Do you enjoy watching films?",
+      strategy: "<b>Direct Answer</b> (Khẳng định mức độ yêu thích) + <b>Explanation</b> (Lý do xem phim) + <b>Benefits</b> (Giúp thư giãn sau giờ học/làm).",
+      sample: "Yes, definitely! I'm a big fan of movies. Watching a good film is my favorite way to <b>unwind</b> and escape from daily stress after a long day at school.",
+      vocab: [
+        "<b>a big fan of (phr):</b> người rất yêu thích...",
+        "<b>unwind (v):</b> thư giãn, xả hơi",
+        "<b>escape from daily stress (vp):</b> thoát khỏi căng thẳng thường ngày"
+      ]
+    },
+    {
+      q: "2. How often do you watch films?",
+      strategy: "<b>Direct Answer</b> (Nêu tần suất cụ thể) + <b>Example</b> (Thời điểm thường xem: cuối tuần, buổi tối) + <b>Explanation</b> (Vì ngày thường bận).",
+      sample: "I usually watch films <b>once or twice a week</b>, mostly on Friday or Saturday evenings. During weekdays, I'm quite busy with my studies, so I save movie nights for the weekend.",
+      vocab: [
+        "<b>once or twice a week (adv):</b> một hoặc hai lần mỗi tuần",
+        "<b>during weekdays (phr):</b> vào các ngày trong tuần",
+        "<b>save sth for (vp):</b> dành cái gì cho..."
+      ]
+    },
+    {
+      q: "3. What kind of films do you like to watch?",
+      strategy: "<b>Direct Answer</b> (Nêu 1–2 thể loại yêu thích) + <b>Explanation / Example</b> (Tại sao thích thể loại đó, kể tên 1 bộ phim tiêu biểu).",
+      sample: "I'm particularly into <b>sci-fi and comedy films</b>. Sci-fi movies always amaze me with their creative storylines and visual effects, while comedies are great for having a <b>good laugh</b> with my family.",
+      vocab: [
+        "<b>be into sth (phr):</b> yêu thích cái gì",
+        "<b>sci-fi (science fiction) (n):</b> phim khoa học viễn tưởng",
+        "<b>visual effects (np):</b> hiệu ứng hình ảnh, kỹ xảo",
+        "<b>have a good laugh (vp):</b> cười sảng khoái"
+      ]
+    },
+    {
+      q: "4. Do people generally prefer watching films at home or in the cinema?",
+      strategy: "<b>Direct Answer</b> (Đưa ra góc nhìn cân bằng: tùy độ tuổi/sở thích) + <b>Comparison</b> (So sánh trải nghiệm rạp chiếu phim vs ở nhà).",
+      sample: "I think it depends on the person. Young people often prefer going to the cinema for the <b>big screen</b> and lively atmosphere, whereas busy adults usually choose streaming platforms like Netflix at home because it's much more <b>convenient and affordable</b>.",
+      vocab: [
+        "<b>big screen (np):</b> màn ảnh rộng",
+        "<b>streaming platforms (np):</b> các nền tảng xem phim trực tuyến",
+        "<b>convenient and affordable (adj):</b> tiện lợi và hợp túi tiền"
+      ]
+    },
+    {
+      q: "5. Would you like to be in a film?",
+      strategy: "<b>Direct Answer</b> (Trả lời thành thật Có hoặc Không) + <b>Explanation</b> (Nêu lý do về tính cách hoặc trải nghiệm thú vị).",
+      sample: "Actually, I don't think I would. Although acting looks exciting, I'm quite <b>camera-shy</b> and I'd probably feel super nervous standing in front of a large film crew. I'd rather just enjoy movies as an audience member!",
+      vocab: [
+        "<b>camera-shy (adj):</b> ngại ống kính máy quay",
+        "<b>film crew (np):</b> đoàn làm phim",
+        "<b>audience member (np):</b> khán giả"
+      ]
+    }
+  ];
+
+  // =========================================================
+  // LOGIC RENDER & TƯƠNG TÁC
+  // =========================================================
+  function switchTab(num) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(`panel-${num}`).classList.add('active');
+    document.getElementById(`tab-btn-${num}`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function speakText(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.92;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  // Render Tab 1: Dialogue
+  function renderSampleDialogue() {
+    const container = document.getElementById("sampleDialogueContainer");
+    container.innerHTML = sampleDialogue.map(turn => {
+      const isE = turn.role === "E";
+      const safeText = turn.text.replace(/'/g, "\'");
+      return `
+        <div class="turn-row ${isE ? 'turn-e' : 'turn-c'}">
+          <div class="speaker-badge">${turn.role}</div>
+          <div class="turn-text">${turn.text}</div>
+          <button class="speak-mini-btn" onclick="speakText('${safeText}')" title="Nghe phát âm">🔊</button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  // Render Tab 3: Pronunciation
+  function switchPronSub(subNum) {
+    document.querySelectorAll('.pron-block').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.pron-pill').forEach(p => p.classList.remove('active'));
+    document.getElementById(`pron-${subNum}`).classList.add('active');
+    document.getElementById(`p-pill-${subNum}`).classList.add('active');
+  }
+
+  function renderMcqQuiz(dataList, containerId, prefix) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = dataList.map((item, qIdx) => `
+      <div class="quiz-q">
+        <div style="font-weight:600;">${item.q}</div>
+        <div class="quiz-opts">
+          ${item.opts.map((opt, oIdx) => `
+            <button class="q-chip" id="${prefix}-${qIdx}-${oIdx}" onclick="checkPronQuiz('${prefix}', ${qIdx}, ${oIdx})">${opt}</button>
+          `).join("")}
+        </div>
+        <div id="${prefix}-exp-${qIdx}" style="display:none; margin-top:8px; font-size:14.5px; color:#166534; background:#dcfce7; padding:8px 12px; border-radius:6px;">
+          ✅ ${item.exp}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function checkPronQuiz(prefix, qIdx, chosenIdx) {
+    const dataList = prefix === 'ed' ? edQuizData : endingQuizData;
+    const item = dataList[qIdx];
+    item.opts.forEach((_, oIdx) => {
+      const btn = document.getElementById(`${prefix}-${qIdx}-${oIdx}`);
+      btn.classList.remove('ok', 'err');
+      if (oIdx === item.ans) btn.classList.add('ok');
+      else if (oIdx === chosenIdx) btn.classList.add('err');
+    });
+    document.getElementById(`${prefix}-exp-${qIdx}`).style.display = 'block';
+  }
+
+  function renderStressQuiz() {
+    const container = document.getElementById("stressQuizContainer");
+    container.innerHTML = stressQuizData.map((item, sIdx) => `
+      <div class="quiz-q">
+        <div style="font-weight:600; margin-bottom:8px;">Câu ${sIdx + 1}:</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+          ${item.words.map((w, wIdx) => `
+            <button class="stress-word-btn" id="st-${sIdx}-${wIdx}" onclick="this.classList.toggle('stressed')">${w}</button>
+          `).join("")}
+        </div>
+        <button class="q-chip" style="background:var(--primary); color:white; border:none;" onclick="checkStress(${sIdx})">Kiểm tra trọng âm câu ${sIdx + 1}</button>
+        <div id="st-exp-${sIdx}" style="display:none; margin-top:8px; font-size:14.5px; color:#166534; background:#dcfce7; padding:8px 12px; border-radius:6px;">
+          ✅ ${item.explanation}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function checkStress(sIdx) {
+    const item = stressQuizData[sIdx];
+    item.words.forEach((_, wIdx) => {
+      const btn = document.getElementById(`st-${sIdx}-${wIdx}`);
+      btn.classList.remove('stressed');
+      if (item.stressedIndices.includes(wIdx)) {
+        btn.classList.add('stressed');
+      }
+    });
+    document.getElementById(`st-exp-${sIdx}`).style.display = 'block';
+  }
+
+  // Render Tab 4: Practice Cards (Click question to reveal answer)
+  function renderPracticeTopic(list, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = list.map((item, idx) => {
+      const cleanSample = item.sample.replace(/<[^>]+>/g, "").replace(/'/g, "\'");
+      return `
+        <div class="practice-q-card" id="${containerId}-card-${idx}">
+          <button class="practice-q-trigger" onclick="togglePracticeCard('${containerId}-card-${idx}')">
+            <span>${item.q}</span>
+            <span class="toggle-hint">👁️ Bấm xem gợi ý &amp; từ vựng</span>
+          </button>
+          <div class="practice-answer-body">
+            <div class="structure-guide">
+              🧭 <b>Cách khai triển ý:</b> ${item.strategy}
+            </div>
+            <div class="sample-ans-box">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <b style="color:#16a34a;">💬 Câu trả lời gợi ý (Band 5.5–6.0):</b>
+                <button class="speak-mini-btn" onclick="speakText('${cleanSample}')">🔊 Nghe mẫu</button>
+              </div>
+              <div>"${item.sample}"</div>
+            </div>
+            <div class="vocab-list-box">
+              <b>📌 Từ vựng / Phrases ăn điểm có thể học:</b>
+              <ul>
+                ${item.vocab.map(v => `<li>${v}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function togglePracticeCard(cardId) {
+    const card = document.getElementById(cardId);
+    card.classList.toggle('open');
+  }
+
+  // Khởi tạo toàn bộ nội dung
+  renderSampleDialogue();
+  renderMcqQuiz(edQuizData, "edQuizContainer", "ed");
+  renderMcqQuiz(endingQuizData, "endingQuizContainer", "end");
+  renderStressQuiz();
+  renderPracticeTopic(studiesPractice, "practiceStudiesContainer");
+  renderPracticeTopic(filmsPractice, "practiceFilmsContainer");
+</script>
+</body>
+</html>
